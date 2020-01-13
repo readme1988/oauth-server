@@ -1,9 +1,10 @@
 package io.choerodon.oauth.api.service.impl;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
+import io.choerodon.core.exception.CommonException;
+import io.choerodon.oauth.api.service.TokenService;
+import io.choerodon.oauth.infra.dataobject.AccessTokenDO;
+import io.choerodon.oauth.infra.mapper.AccessTokenMapper;
+import io.choerodon.oauth.infra.mapper.RefreshTokenMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -12,11 +13,9 @@ import org.springframework.security.oauth2.common.util.SerializationUtils;
 import org.springframework.session.FindByIndexNameSessionRepository;
 import org.springframework.stereotype.Service;
 
-import io.choerodon.core.exception.CommonException;
-import io.choerodon.oauth.api.service.TokenService;
-import io.choerodon.oauth.infra.dataobject.AccessTokenDO;
-import io.choerodon.oauth.infra.mapper.AccessTokenMapper;
-import io.choerodon.oauth.infra.mapper.RefreshTokenMapper;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author Eugen
@@ -79,4 +78,5 @@ public class TokenServiceImpl implements TokenService {
     public void deleteList(List<String> tokenList) {
         tokenList.forEach(t -> deleteOne(t));
     }
+
 }

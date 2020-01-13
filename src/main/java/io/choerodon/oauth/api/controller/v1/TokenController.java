@@ -1,13 +1,12 @@
 package io.choerodon.oauth.api.controller.v1;
 
-import java.util.List;
-
 import io.choerodon.core.annotation.Permission;
+import io.choerodon.oauth.api.service.TokenService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import io.choerodon.oauth.api.service.TokenService;
+import java.util.List;
 
 /**
  * @author Eugen
